@@ -23,7 +23,7 @@ namespace LawnCare
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/Solar-bootstrap.css",
                       "~/Content/site.css"));
         }
     }
