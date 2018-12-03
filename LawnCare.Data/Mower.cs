@@ -7,21 +7,16 @@ using System.Threading.Tasks;
 
 namespace LawnCare.Data
 {
-    public class Client
+   public class Mower
     {
         [Key]
-        public int ClientId { get; set; }
-
+        public int MowerId { get; set; }
         [Required]
-        public Guid CustomerId { get; set; }
-
+        public Guid LandscapeId { get; set; }
         [Required]
-        public string ClientName { get; set; }
-
+        public string MowerCity { get; set; }
         [Required]
-        public string ClientCity { get; set; }
-
-        [Required]
-        public string ClientNeeds { get; set; }
+        public string MowerService { get; set; }
+        public decimal MowerRate { get; set; }
     }
 }

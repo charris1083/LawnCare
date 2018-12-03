@@ -33,7 +33,7 @@ namespace LawnCare.Data
             return new ApplicationDbContext();
         }
         public DbSet<Client> Clients { get; set; }
-        public DbSet<Cunsumer> Cunsumers { get; set; }
+        public DbSet<Mower> Mowers { get; set; }
         public DbSet<Contract> Contracts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -48,7 +48,7 @@ namespace LawnCare.Data
         }
     }
 
-    public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserRole>
+    public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
     {
         public IdentityUserLoginConfiguration()
         {
