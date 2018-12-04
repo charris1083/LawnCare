@@ -1,4 +1,6 @@
 ﻿using LawnCare.Models;
+using LawnCare.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,22 +15,28 @@ namespace LawnCare.WebMVC.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            var clientModel = new ClientListItem[0];
-            return View(clientModel);
-        }
-        public ActionResult Create()
-        {
-            return View();
+            var clientId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ClientService(clientId);
+            var model = service.GetClients();
+
+            return View(model);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(ClientCreate client)
+        public ActionResult Create(ClientCreate model)
         {
             if (!ModelState.IsValid)
             {
-
+            return View();
             }
-            return View(client);
+
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ClientService(userId);
+
+            service.CreateClient(model);
+
+            return RedirectToAction("Index");
         }
+        
     }
 }

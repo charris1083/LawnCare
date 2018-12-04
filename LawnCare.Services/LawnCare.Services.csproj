@@ -54,11 +54,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientService.cs" />
+    <Compile Include="ContractService.cs" />
+    <Compile Include="MowerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LawnCare.Data\LawnCare.Data.csproj">
+      <Project>{663646f1-251a-4f4d-a0b3-35cb7502b9fd}</Project>
+      <Name>LawnCare.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LawnCare.Models\LawnCare.Models.csproj">
+      <Project>{8eae082c-dcfa-44d8-b4cc-09694f7596e6}</Project>
+      <Name>LawnCare.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

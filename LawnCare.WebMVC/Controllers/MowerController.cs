@@ -1,4 +1,6 @@
 ﻿using LawnCare.Models;
+using LawnCare.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,22 +15,27 @@ namespace LawnCare.WebMVC.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            var mowerModel = new MowerListItem[0];
-            return View(mowerModel);
-        }
-        public ActionResult Create()
-        {
-            return View();
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new MowerService(userId);
+            var model = service.GetMowers();
+
+            return View(model);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(MowerCreate mower)
+        public ActionResult Create(MowerCreate model)
         {
             if (ModelState.IsValid)
             {
-
+            return View();
             }
-            return View(mower);
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new MowerService(userId);
+
+            service.CreateMower(model);
+
+            return RedirectToAction("Index");
         }
+        
     }
 }
