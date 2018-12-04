@@ -16,5 +16,19 @@ namespace LawnCare.WebMVC.Controllers
             var mowerModel = new MowerListItem[0];
             return View(mowerModel);
         }
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(MowerCreate mower)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+            return View(mower);
+        }
     }
 }

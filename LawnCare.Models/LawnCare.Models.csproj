@@ -54,8 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientCreate.cs" />
     <Compile Include="ClientListItem.cs" />
+    <Compile Include="ContractCreate.cs" />
     <Compile Include="ContractListItem.cs" />
+    <Compile Include="MowerCreate.cs" />
     <Compile Include="MowerListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

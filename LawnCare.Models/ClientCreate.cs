@@ -1,21 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace LawnCare.Models
 {
-    public class ClientListItem
+    public class ClientCreate
     {
-        public int ClientId { get; set; }
+        [Required]
         public string ClientName { get; set; }
         public string ClientCity { get; set; }
         public string ClientNeeds { get; set; }
-
-        public override string ToString()
-        {
-            return base.ToString();
-        }
     }
 }

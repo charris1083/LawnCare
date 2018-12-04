@@ -17,6 +17,9 @@ namespace LawnCare.Data
         public string MowerCity { get; set; }
         [Required]
         public string MowerService { get; set; }
+        [Required]
+        public string MowerName { get; set; }
+
         public decimal MowerRate { get; set; }
     }
 }

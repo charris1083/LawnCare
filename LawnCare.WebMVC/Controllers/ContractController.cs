@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace LawnCare.WebMVC.Controllers
 {
-    public class ContactController : Controller
+    public class ContractController : Controller
     {
         // GET: Contact
         [Authorize]
@@ -15,6 +15,20 @@ namespace LawnCare.WebMVC.Controllers
         {
             var contractModel = new ContractListItem[0];
             return View(contractModel);
+        }
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(ContractCreate contract)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+            return View(contract);
         }
     }
 }

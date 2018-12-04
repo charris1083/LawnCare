@@ -6,16 +6,13 @@ using System.Threading.Tasks;
 
 namespace LawnCare.Models
 {
-    public class ClientListItem
+    public class ContractCreate
     {
-        public int ClientId { get; set; }
         public string ClientName { get; set; }
+        public string MowerName { get; set; }
+        public string Mowersrevice { get; set; }
+        public decimal MowerRate { get; set; }
+        public string mowerCity { get; set; }
         public string ClientCity { get; set; }
-        public string ClientNeeds { get; set; }
-
-        public override string ToString()
-        {
-            return base.ToString();
-        }
     }
 }
