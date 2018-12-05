@@ -25,6 +25,7 @@ namespace LawnCare.Services
                     MowerName = model.MowerName,
                     MowerCity = model.MowerCity,
                     MowerRate = model.MowerRate,
+                    MowerService = model.MowerService
                 };
             using (var ctx = new ApplicationDbContext())
             {
@@ -46,6 +47,9 @@ namespace LawnCare.Services
                         {
                             MowerId = e.MowerId,
                             MowerName = e.MowerName,
+                            MowerCity = e.MowerCity,
+                            MowerRate = e.MowerRate,
+                            MowerService = e.MowerService
                         });
                 return query.ToArray();
             }

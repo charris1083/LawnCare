@@ -11,8 +11,7 @@ namespace LawnCare.Data
     {
         [Key]
         public int ContractId { get; set; }
-        public Guid ContractGuid { get; set; }
-        public int MyProperty { get; set; }
+        public Guid OwnerId { get; set; }
         public int ClientId { get; set; }
         public int MowerId { get; set; }
 

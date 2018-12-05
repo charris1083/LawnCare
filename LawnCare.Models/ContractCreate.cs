@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LawnCare.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,11 +9,11 @@ namespace LawnCare.Models
 {
     public class ContractCreate
     {
-        public string ClientName { get; set; }
-        public string MowerName { get; set; }
-        public string Mowersrevice { get; set; }
-        public decimal MowerRate { get; set; }
-        public string mowerCity { get; set; }
-        public string ClientCity { get; set; }
+        public int ClientId { get; set; }
+        public int MowerId { get; set; }
+
+        public virtual Client Client { get; set; }
+        public virtual Mower Mower { get; set; }
     }
+    
 }

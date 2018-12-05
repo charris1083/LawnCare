@@ -1,4 +1,6 @@
 ﻿using LawnCare.Models;
+using LawnCare.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,22 +15,49 @@ namespace LawnCare.WebMVC.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            var contractModel = new ContractListItem[0];
-            return View(contractModel);
+            var service = CreateContractService();
+            var model = service.GetContracts();
+            return View(model);
         }
         public ActionResult Create()
         {
+            var clientService = CreateClientService();
+            var mowerService = CreateMowerService();
+            var clients = clientService.GetClients();
+            var mowers = mowerService.GetMowers();
+            
+            ViewBag.ClientId = new SelectList(clients, "ClientId", "ClientName");
+            ViewBag.MowerId = new SelectList(mowers, "MowerId", "MowerName");
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(ContractCreate contract)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
 
             }
             return View(contract);
+        }
+
+        private ContractService CreateContractService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ContractService(userId);
+            return service;
+        }
+        private ClientService CreateClientService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ClientService(userId);
+            return service;
+        }
+        private MowerService CreateMowerService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new MowerService(userId);
+            return service;
         }
     }
 }

@@ -17,6 +17,15 @@
         <th>
             @Html.DisplayNameFor(model => model.MowerName)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MowerCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MowerService)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MowerRate)
+        </th>
         <th></th>
     </tr>
 
@@ -27,6 +36,15 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.MowerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MowerCity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MowerService)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MowerRate)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

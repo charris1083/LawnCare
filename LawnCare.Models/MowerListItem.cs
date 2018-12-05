@@ -10,6 +10,9 @@ namespace LawnCare.Models
     {
         public int MowerId { get; set; }
         public string MowerName { get; set; }
+        public string MowerCity { get; set; }
+        public decimal MowerRate { get; set; }
+        public string MowerService { get; set; }
 
         public override string ToString()
         {

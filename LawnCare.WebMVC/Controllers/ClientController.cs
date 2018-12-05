@@ -21,6 +21,12 @@ namespace LawnCare.WebMVC.Controllers
 
             return View(model);
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(ClientCreate model)

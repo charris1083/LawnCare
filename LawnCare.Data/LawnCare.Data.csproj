@@ -69,6 +69,10 @@
     <Compile Include="Migrations\201812041548509_newprop.Designer.cs">
       <DependentUpon>201812041548509_newprop.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812052133589_changeddata.cs" />
+    <Compile Include="Migrations\201812052133589_changeddata.Designer.cs">
+      <DependentUpon>201812052133589_changeddata.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Mower.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812041548509_newprop.resx">
       <DependentUpon>201812041548509_newprop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812052133589_changeddata.resx">
+      <DependentUpon>201812052133589_changeddata.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

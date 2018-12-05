@@ -46,7 +46,9 @@ namespace LawnCare.Services
                             new ClientListItem
                             {
                                 ClientId = e.ClientId,
-                                ClientName = e.ClientName
+                                ClientName = e.ClientName,
+                                ClientCity = e.ClientCity,
+                                ClientNeeds = e.ClientNeeds
                             }
                         );
                 return query.ToArray();

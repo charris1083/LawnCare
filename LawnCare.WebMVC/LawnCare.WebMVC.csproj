@@ -243,12 +243,12 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Contract\Index.cshtml" />
     <Content Include="Views\Client\Index.cshtml" />
     <Content Include="Views\Mower\Index.cshtml" />
-    <Content Include="Views\Contact\Create.cshtml" />
     <Content Include="Views\Mower\Create.cshtml" />
     <Content Include="Views\Client\Create.cshtml" />
+    <Content Include="Views\Contract\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
