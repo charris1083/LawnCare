@@ -249,6 +249,7 @@
     <Content Include="Views\Mower\Create.cshtml" />
     <Content Include="Views\Client\Create.cshtml" />
     <Content Include="Views\Contract\Create.cshtml" />
+    <Content Include="Views\Client\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

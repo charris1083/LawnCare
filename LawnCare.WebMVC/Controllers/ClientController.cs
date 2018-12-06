@@ -15,11 +15,17 @@ namespace LawnCare.WebMVC.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            var clientId = Guid.Parse(User.Identity.GetUserId());
-            var service = new ClientService(clientId);
+            ClientService service = CreateClientService();
             var model = service.GetClients();
 
             return View(model);
+        }
+
+        private ClientService CreateClientService()
+        {
+            var clientId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ClientService(clientId);
+            return service;
         }
 
         public ActionResult Create()
@@ -31,17 +37,28 @@ namespace LawnCare.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ClientCreate model)
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid) return View(model);
+
+            var service = CreateClientService();
+
+            if (service.CreateClient(model)) 
             {
-            return View();
-            }
+                TempData["SaveResult"] = "Your client ws created.";
+                return RedirectToAction("Index");
+            };
+            
 
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new ClientService(userId);
+            ModelState.AddModelError("", "Client coud not be created.");
 
-            service.CreateClient(model);
+            return View(model);
 
-            return RedirectToAction("Index");
+        }
+        public ActionResult Details(int id)
+        {
+            var svc = CreateClientService();
+            var model = svc.GetClientById(id);
+
+            return View(model);
         }
         
     }

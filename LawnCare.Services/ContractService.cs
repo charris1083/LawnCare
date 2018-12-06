@@ -35,10 +35,24 @@ namespace LawnCare.Services
             }
 
         }
-
-        public object GetContracts()
-        {
-            throw new NotImplementedException();
-        }
+            public IEnumerable<ContractListItem> GetContracts()
+            {
+                using(var ctx = new ApplicationDbContext())
+                {
+                    var query =
+                        ctx
+                        .Contracts
+                        .Where(e => e.OwnerId == _userId)
+                        .Select(
+                            e =>
+                            new ContractListItem
+                            {
+                                ContractId = e.ContractId,
+                                ClientId = e.ClientId,
+                                MowerId = e.MowerId
+                            });
+                    return query.ToArray();
+                }
+            }
     }
 }

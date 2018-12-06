@@ -54,5 +54,23 @@ namespace LawnCare.Services
                 return query.ToArray();
             }
         }
+        public ClientDetail GetClientById(int clientId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Clients
+                    .Single(e => e.ClientId == clientId && e.CustomerId == _userId);
+                return
+                    new ClientDetail
+                    {
+                        ClentId = entity.ClientId,
+                        ClientName = entity.ClientName,
+                        ClientCity = entity.ClientCity,
+                        ClientNeeds = entity.ClientNeeds
+                    };
+            }
+        }
     }
 }
