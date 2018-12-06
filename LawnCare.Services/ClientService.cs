@@ -65,7 +65,7 @@ namespace LawnCare.Services
                 return
                     new ClientDetail
                     {
-                        ClentId = entity.ClientId,
+                        ClientId = entity.ClientId,
                         ClientName = entity.ClientName,
                         ClientCity = entity.ClientCity,
                         ClientNeeds = entity.ClientNeeds
