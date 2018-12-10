@@ -22,3 +22,6 @@ select,
 textarea {
     max-width: 280px;
 }
+#homejumbotron {
+    background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbptbJpJQ6eAlvgBwk05RNylfMTf4x-DEkrwqxMM6uFrl_o-xC) no-repeat center
+}
