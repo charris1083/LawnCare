@@ -72,5 +72,33 @@ namespace LawnCare.Services
                     };
             }
         }
+        public bool UpdateClient(ClientEdit model)
+        {
+            using (var ctx =  new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Clients
+                    .Single(e => e.ClientId == model.ClientId && e.CustomerId == _userId);
+                entity.ClientId = model.ClientId;
+                entity.ClientName = model.ClientName;
+                entity.ClientCity = model.ClientCity;
+                entity.ClientNeeds = model.ClientNeeds;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        public bool DeleteClient(int clientId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Clients
+                    .Single(e => e.ClientId == clientId && e.CustomerId == _userId);
+                ctx.Clients.Remove(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

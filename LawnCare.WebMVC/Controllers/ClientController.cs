@@ -43,7 +43,7 @@ namespace LawnCare.WebMVC.Controllers
 
             if (service.CreateClient(model)) 
             {
-                TempData["SaveResult"] = "Your client ws created.";
+                TempData["SaveResult"] = "Your client was created.";
                 return RedirectToAction("Index");
             };
             
@@ -60,6 +60,62 @@ namespace LawnCare.WebMVC.Controllers
 
             return View(model);
         }
-        
+        public ActionResult Edit(int id)
+        {
+            var service = CreateClientService();
+            var detail = service.GetClientById(id);
+            var model =
+                new ClientEdit
+                {
+                    ClientId = detail.ClientId,
+                    ClientName = detail.ClientName,
+                    ClientCity = detail.ClientCity,
+                    ClientNeeds = detail.ClientNeeds
+                };
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, ClientEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if(model.ClientId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+            var service = CreateClientService();
+            if (service.UpdateClient(model))
+            {
+                TempData["SaveResult"] = "Your note was updated.";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "Your note could not be updated.");
+            return View(model);
+        }
+
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateClientService();
+            var model = svc.GetClientById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateClientService();
+            service.DeleteClient(id);
+
+            TempData["SaveResult"] = "Your client was deleted";
+            return RedirectToAction ("Index");
+        }
+
+
+
     }
 }

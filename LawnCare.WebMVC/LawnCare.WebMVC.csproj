@@ -250,6 +250,14 @@
     <Content Include="Views\Client\Create.cshtml" />
     <Content Include="Views\Contract\Create.cshtml" />
     <Content Include="Views\Client\Details.cshtml" />
+    <Content Include="Views\Mower\Details.cshtml" />
+    <Content Include="Views\Client\Edit.cshtml" />
+    <Content Include="Views\Client\Delete.cshtml" />
+    <Content Include="Views\Mower\Edit.cshtml" />
+    <Content Include="Views\Contract\Details.cshtml" />
+    <Content Include="Views\Contract\Edit.cshtml" />
+    <Content Include="Views\Contract\Delete.cshtml" />
+    <Content Include="Views\Mower\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

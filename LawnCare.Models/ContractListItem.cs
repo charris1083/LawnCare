@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LawnCare.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,14 @@ namespace LawnCare.Models
         public int ClientId { get; set; }
         public int MowerId { get; set; }
 
-        public override string ToString()
-        {
-            return base.ToString();
-        }
+        public string ClientName { get; set; }
+        public string MowerName { get; set; }
+        public string ClientCity { get; set; }
+        public string MowerService { get; set; }
+        public decimal MowerRate { get; set; }
+
+        //public virtual Client Client { get; set; }
+        //public virtual Mower Mower { get; set; }
+
     }
 }

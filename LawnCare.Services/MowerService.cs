@@ -54,5 +54,53 @@ namespace LawnCare.Services
                 return query.ToArray();
             }
         }
+        public MowerDetail GetMowerById(int mowerId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Mowers
+                    .Single(e => e.MowerId == mowerId && e.LandscapeId == _userId);
+                return
+                    new MowerDetail
+                    {
+                        MowerId = entity.MowerId,
+                        MowerName = entity.MowerName,
+                        MowerCity = entity.MowerCity,
+                        MowerRate = entity.MowerRate,
+                        MowerService = entity.MowerService
+                    };
+            }
+        }
+        public bool UpdateMower(MowerEdit model)
+        {
+             using (var ctx =  new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Mowers
+                    .Single(e => e.MowerId == model.MowerId && e.LandscapeId == _userId);
+                entity.MowerId = model.MowerId;
+                entity.MowerName = model.MowerName;
+                entity.MowerCity = model.MowerCity;
+                entity.MowerService = model.MowerService;
+                entity.MowerRate = model.MowerRate;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        public bool DeleteMower(int mowerId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Mowers
+                    .Single(e => e.MowerId == mowerId && e.LandscapeId == _userId);
+                ctx.Mowers.Remove(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

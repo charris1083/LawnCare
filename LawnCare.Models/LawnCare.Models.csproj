@@ -54,12 +54,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientEdit.cs" />
     <Compile Include="ClientCreate.cs" />
     <Compile Include="ClientDetail.cs" />
     <Compile Include="ClientListItem.cs" />
     <Compile Include="ContractCreate.cs" />
+    <Compile Include="ContractDetail.cs" />
+    <Compile Include="ContractEdit.cs" />
     <Compile Include="ContractListItem.cs" />
     <Compile Include="MowerCreate.cs" />
+    <Compile Include="MowerDetail.cs" />
+    <Compile Include="MowerEdit.cs" />
     <Compile Include="MowerListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
