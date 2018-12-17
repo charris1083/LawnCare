@@ -33,3 +33,6 @@ textarea {
     background-color: rgba(255,255,255,0.4);
     background-blend-mode: lighten;
 }
+#contractBackground {
+    background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Butchart_gardens.JPG/220px-Butchart_gardens.JPG)
+}
